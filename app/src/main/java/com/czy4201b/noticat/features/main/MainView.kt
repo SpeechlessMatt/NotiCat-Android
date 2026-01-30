@@ -867,7 +867,6 @@ fun MainView(
                         Icon(
                             painter = painterResource(R.drawable.chevron_right),
                             contentDescription = null,
-                            modifier = Modifier.rotate(subsButtonRotateDegree)
                         )
                     }
                     if (showAboutMeDialog) {
@@ -908,7 +907,6 @@ fun MainView(
                         Icon(
                             painter = painterResource(R.drawable.chevron_right),
                             contentDescription = null,
-                            modifier = Modifier.rotate(subsButtonRotateDegree)
                         )
                     }
                     if (showPayCodeDialog) {
