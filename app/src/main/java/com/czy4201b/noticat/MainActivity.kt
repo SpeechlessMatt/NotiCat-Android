@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.lifecycle.ViewModelProvider
 import com.czy4201b.noticat.core.theme.NotiCatTheme
 import com.czy4201b.noticat.navigation.NotiCatApp
 

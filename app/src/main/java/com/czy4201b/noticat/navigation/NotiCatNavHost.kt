@@ -21,7 +21,6 @@ import com.czy4201b.noticat.NotiCatApplication
 import com.czy4201b.noticat.features.edit.EditClientView
 import com.czy4201b.noticat.features.edit.EditClientViewViewModelFactory
 import com.czy4201b.noticat.features.globalfilters.GlobalFiltersEditView
-import com.czy4201b.noticat.features.globalfilters.GlobalFiltersEditViewViewModel
 import com.czy4201b.noticat.features.globalfilters.GlobalFiltersEditViewViewModelFactory
 import com.czy4201b.noticat.features.login.LoginCard
 import com.czy4201b.noticat.features.main.ReadmeWeb

@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.room.Room
 import com.czy4201b.noticat.core.common.GlobalFilterManager
 import com.czy4201b.noticat.core.common.ServerManager
-import com.czy4201b.noticat.core.database.GlobalFilterDao
 import com.czy4201b.noticat.core.database.NotiCatDatabase
 
 class NotiCatApplication : Application() {
