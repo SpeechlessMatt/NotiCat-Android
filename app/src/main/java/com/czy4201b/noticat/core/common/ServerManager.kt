@@ -38,6 +38,10 @@ object ServerManager {
         clearSupportClients()
     }
 
+    suspend fun cleanAuth(serverId: String){
+        accountDao.deleteByServerId(serverId = serverId)
+    }
+
     fun updateCurrent(url: String?, serverId: String?) {
         currentUrl = url
         currentServerId = serverId

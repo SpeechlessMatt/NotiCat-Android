@@ -15,6 +15,9 @@ interface AccountDao {
     @Upsert
     suspend fun insert(account: AccountEntity)
 
+    @Query("DELETE FROM accounts WHERE serverId = :serverId")
+    suspend fun deleteByServerId(serverId: String)
+
     @Query("SELECT * FROM accounts WHERE serverId = :serverId LIMIT 1")
     suspend fun getAccountByServerId(serverId: String): AccountEntity?
 }

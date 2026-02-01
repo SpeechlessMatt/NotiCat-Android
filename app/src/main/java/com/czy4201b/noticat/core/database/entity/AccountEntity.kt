@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey
             onDelete = ForeignKey.CASCADE
         )
     ],
-    indices = [Index(value = ["serverId"])]
+    indices = [Index(value = ["serverId"], unique = true)]
 )
 data class AccountEntity(
     @PrimaryKey(autoGenerate = true)

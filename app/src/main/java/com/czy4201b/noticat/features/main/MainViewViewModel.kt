@@ -169,6 +169,7 @@ class MainViewViewModel(
         }
 
         viewModelScope.launch {
+            ServerManager.cleanAuth(serverId = id)
             serverDao.deleteByStringId(stringId = id)
         }
     }
