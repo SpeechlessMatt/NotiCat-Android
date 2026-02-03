@@ -24,6 +24,14 @@ object ServerManager {
     // stringId(serverId) match authToken?
     private val tokenCache = mutableMapOf<String, String>()
 
+    fun getClientName(client: String): String? {
+        return _supportClientMap.value?.get(client)?.name
+    }
+
+    fun getClientUrl(client: String): String? {
+        return _supportClientMap.value?.get(client)?.url
+    }
+
     fun updateSupportClients(map: Map<String, ClientInfo>) {
         _supportClientMap.value = map
     }

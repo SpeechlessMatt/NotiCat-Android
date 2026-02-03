@@ -758,11 +758,11 @@ fun MainView(
                                                         .weight(1f)
                                                 ) {
                                                     Text(
-                                                        "bili: BiliClient",
+                                                        "${sub.client}: ${ServerManager.getClientName(sub.client) ?: "未命名"}",
                                                         fontWeight = FontWeight.Bold
                                                     )
                                                     Text(
-                                                        "URL: https://www.bilibili.com",
+                                                        "URL: ${ServerManager.getClientUrl(sub.client) ?: "undefined"}",
                                                         style = MaterialTheme.typography.bodySmall,
                                                     )
                                                 }

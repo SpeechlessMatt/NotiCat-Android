@@ -18,8 +18,7 @@ import androidx.room.PrimaryKey
     indices = [Index(value = ["serverId"], unique = true)]
 )
 data class AccountEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
-    val loginAuth: String,
+    @PrimaryKey
     val serverId: String,
+    val loginAuth: String,
 )

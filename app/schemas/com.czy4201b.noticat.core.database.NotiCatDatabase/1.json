@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "98a24793f4970d73f4f598852b120794",
+    "identityHash": "45964799181a6390ab8c869120960cf3",
     "entities": [
       {
         "tableName": "servers",
@@ -59,12 +59,12 @@
       },
       {
         "tableName": "accounts",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `loginAuth` TEXT NOT NULL, `serverId` TEXT NOT NULL, FOREIGN KEY(`serverId`) REFERENCES `servers`(`stringId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`serverId` TEXT NOT NULL, `loginAuth` TEXT NOT NULL, PRIMARY KEY(`serverId`), FOREIGN KEY(`serverId`) REFERENCES `servers`(`stringId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
+            "fieldPath": "serverId",
+            "columnName": "serverId",
+            "affinity": "TEXT",
             "notNull": true
           },
           {
@@ -72,18 +72,12 @@
             "columnName": "loginAuth",
             "affinity": "TEXT",
             "notNull": true
-          },
-          {
-            "fieldPath": "serverId",
-            "columnName": "serverId",
-            "affinity": "TEXT",
-            "notNull": true
           }
         ],
         "primaryKey": {
-          "autoGenerate": true,
+          "autoGenerate": false,
           "columnNames": [
-            "id"
+            "serverId"
           ]
         },
         "indices": [
@@ -150,7 +144,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '98a24793f4970d73f4f598852b120794')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '45964799181a6390ab8c869120960cf3')"
     ]
   }
 }
