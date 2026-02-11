@@ -275,14 +275,6 @@ class MainViewViewModel(
         }
     }
 
-    fun toggleFilterRules() {
-        _state.update { state ->
-            state.copy(
-                isShowFilterRules = !state.isShowFilterRules
-            )
-        }
-    }
-
     private fun getCurrentAppVersion(): String {
         return try {
             val application = NotiCatApplication.instance
