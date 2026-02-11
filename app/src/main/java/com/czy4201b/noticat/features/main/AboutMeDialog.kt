@@ -1,7 +1,6 @@
 package com.czy4201b.noticat.features.main
 
 import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -27,6 +26,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import androidx.core.net.toUri
 import com.czy4201b.noticat.R
 
 @Composable
@@ -92,7 +92,7 @@ fun AboutMeDialog(
                                     context.startActivity(
                                         Intent(
                                             Intent.ACTION_VIEW,
-                                            Uri.parse("https://github.com/SpeechlessMatt")
+                                            "https://github.com/SpeechlessMatt".toUri()
                                         )
                                     )
                                 }

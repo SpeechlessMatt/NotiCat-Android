@@ -32,7 +32,6 @@ import kotlinx.serialization.json.Json
 import okhttp3.Request
 import org.json.JSONObject
 import java.util.UUID
-import kotlin.text.ifEmpty
 
 @OptIn(FlowPreview::class)
 class MainViewViewModel(

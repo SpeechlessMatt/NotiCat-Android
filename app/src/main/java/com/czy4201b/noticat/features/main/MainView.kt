@@ -1,5 +1,6 @@
 package com.czy4201b.noticat.features.main
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
@@ -56,6 +57,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import androidx.core.net.toUri
 import androidx.navigation.NavHostController
 import com.czy4201b.noticat.R
 import com.czy4201b.noticat.core.common.ServerManager
@@ -929,6 +931,12 @@ fun MainView(
                             .fillMaxWidth()
                             .clickable(
                                 onClick = {
+                                    context.startActivity(
+                                        Intent(
+                                            Intent.ACTION_VIEW,
+                                            "https://github.com/SpeechlessMatt/NotiCat-Server".toUri()
+                                        )
+                                    )
                                 }
                             )
                             .padding(horizontal = 15.dp)
