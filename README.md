@@ -14,7 +14,7 @@
 **不需要编译，不需要配置环境，下载即用：**
 
 1. 进入 [**Releases**](https://github.com/SpeechlessMatt/NotiCat-Android/releases/latest) 页面
-2. 下载 `app-release.apk`（约 20MB）
+2. 下载 `app-release.apk`（约 5MB）
 3. 安装并允许"未知来源"权限（Android 会提示）
 
 *支持 Android 8.0 (API 26) 及以上*
