@@ -17,4 +17,6 @@ sealed class Route(val route: String) {
             "edit/$client?subscriptionId=$subscriptionId"
 
     }
+
+    object UpdateDialog : Route("update_dialog")
 }
