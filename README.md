@@ -2,7 +2,7 @@
 
 [![Release](https://img.shields.io/github/v/release/YOURNAME/noticat-android?logo=github)](https://github.com/SpeechlessMatt/NotiCat-Android/releases)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.0+-7F52FF?logo=kotlin)]()
-[![Download](https://img.shields.io/badge/Download-APK-brightgreen)](https://github.com/YOURNAME/noticat-android/releases/latest)
+[![Download](https://img.shields.io/badge/Download-APK-brightgreen)](https://github.com/SpeechlessMatt/NotiCat-Android/releases)
 
 > **你的信息聚合遥控器**  
 > 一个客户端，管理多个 NotiCat 服务器。支持多账号、多节点，让通知管理像切歌一样简单。
@@ -129,8 +129,8 @@ http://192.168.1.5:8080
 
 ## 🔗 相关链接
 
-- [**NotiCat Server**](https://github.com/YOURNAME/noticat-server) - 需要自己部署后端？看这里
-- [**反馈问题**](https://github.com/YOURNAME/noticat-android/issues) - Bug 报告或功能建议
+- [**NotiCat Server**](https://github.com/SpeechlessMatt/NotiCat-Server) - 需要自己部署后端？看这里
+- [**反馈问题**](https://github.com/SpeechlessMatt/NotiCat-Android/issues) - Bug 报告或功能建议
 
 ---
 
