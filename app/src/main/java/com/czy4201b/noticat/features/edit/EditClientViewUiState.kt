@@ -8,6 +8,7 @@ data class EditClientViewUiState(
     val clientName: String = "",
     val clientDesc: String = "",
     val subsState: SubsState = SubsState.Idle,
+    val isShowCred: Boolean = false,
     val isShowExtra: Boolean = false,
     val isApplyGlobalFilters: Boolean = true
 )

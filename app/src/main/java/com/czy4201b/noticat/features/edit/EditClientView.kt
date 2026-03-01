@@ -221,97 +221,99 @@ fun EditClientView(
                 }
             }
 
-            item {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .padding(vertical = 12.dp)
-                            .weight(1f),
-                    ) {
-                        Text(
-                            stringResource(R.string.credentials),
-                            style = MaterialTheme.typography.bodyLarge,
-                        )
-                        Text(
-                            stringResource(R.string.credentials_desc),
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
-                }
-
-            }
-
-            item {
-                Column(
-                    modifier = Modifier
-                        .padding(bottom = 5.dp)
-                        .padding(horizontal = 20.dp),
-                ) {
+            if (uiState.isShowCred) {
+                item {
                     Row(
-                        verticalAlignment = Alignment.CenterVertically
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 20.dp),
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        OutlinedTextField(
-                            value = uiState.account,
-                            onValueChange = {
-                                vm.updateAccount(it)
-                            },
-                            placeholder = { Text(stringResource(R.string.account_hint)) },
-                            modifier = Modifier.weight(1f),
-                            visualTransformation = if (accountVisible) VisualTransformation.None else PasswordVisualTransformation(),
-                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-                        )
-                        IconButton(
-                            onClick = {
-                                accountVisible = !accountVisible
-                            },
+                        Column(
+                            modifier = Modifier
+                                .padding(vertical = 12.dp)
+                                .weight(1f),
                         ) {
-                            Icon(
-                                modifier = Modifier
-                                    .clip(CircleShape),
-                                painter = if (accountVisible)
-                                    painterResource(R.drawable.visibility)
-                                else painterResource(
-                                    R.drawable.visibility_off
-                                ),
-                                contentDescription = null
+                            Text(
+                                stringResource(R.string.credentials),
+                                style = MaterialTheme.typography.bodyLarge,
+                            )
+                            Text(
+                                stringResource(R.string.credentials_desc),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
-                    Spacer(modifier = Modifier.height(5.dp))
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically
+
+                }
+
+                item {
+                    Column(
+                        modifier = Modifier
+                            .padding(bottom = 5.dp)
+                            .padding(horizontal = 20.dp),
                     ) {
-                        OutlinedTextField(
-                            value = uiState.password,
-                            onValueChange = {
-                                vm.updatePasswd(it)
-                            },
-                            placeholder = { Text(stringResource(R.string.password_hint)) },
-                            modifier = Modifier.weight(1f),
-                            visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
-                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-                        )
-                        IconButton(
-                            onClick = {
-                                passwordVisible = !passwordVisible
-                            },
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Icon(
-                                modifier = Modifier
-                                    .clip(CircleShape),
-                                painter = if (passwordVisible)
-                                    painterResource(R.drawable.visibility)
-                                else painterResource(
-                                    R.drawable.visibility_off
-                                ),
-                                contentDescription = null
+                            OutlinedTextField(
+                                value = uiState.account,
+                                onValueChange = {
+                                    vm.updateAccount(it)
+                                },
+                                placeholder = { Text(stringResource(R.string.account_hint)) },
+                                modifier = Modifier.weight(1f),
+                                visualTransformation = if (accountVisible) VisualTransformation.None else PasswordVisualTransformation(),
+                                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                             )
+                            IconButton(
+                                onClick = {
+                                    accountVisible = !accountVisible
+                                },
+                            ) {
+                                Icon(
+                                    modifier = Modifier
+                                        .clip(CircleShape),
+                                    painter = if (accountVisible)
+                                        painterResource(R.drawable.visibility)
+                                    else painterResource(
+                                        R.drawable.visibility_off
+                                    ),
+                                    contentDescription = null
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.height(5.dp))
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            OutlinedTextField(
+                                value = uiState.password,
+                                onValueChange = {
+                                    vm.updatePasswd(it)
+                                },
+                                placeholder = { Text(stringResource(R.string.password_hint)) },
+                                modifier = Modifier.weight(1f),
+                                visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+                                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                            )
+                            IconButton(
+                                onClick = {
+                                    passwordVisible = !passwordVisible
+                                },
+                            ) {
+                                Icon(
+                                    modifier = Modifier
+                                        .clip(CircleShape),
+                                    painter = if (passwordVisible)
+                                        painterResource(R.drawable.visibility)
+                                    else painterResource(
+                                        R.drawable.visibility_off
+                                    ),
+                                    contentDescription = null
+                                )
+                            }
                         }
                     }
                 }

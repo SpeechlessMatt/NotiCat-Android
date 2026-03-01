@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.Color
 val BlueCharcoal   = Color(0xFF1E2A38)    // 深蓝灰，代替AlmostBlack
 val DeepSlate      = Color(0xFF2C3E50)    // 石板蓝
 val PrussianBlue   = Color(0xFF003152)    // 普鲁士蓝，作为强调色
+val MintFrost      = Color(0xFFE6EDF2) // 像冷钢一样的颜色
 
 // 中性色 - 带有温度的高级灰
 val PearlWhite     = Color(0xFFF8F9FA)    // 珍珠白，背景

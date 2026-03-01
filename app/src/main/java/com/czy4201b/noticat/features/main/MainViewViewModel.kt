@@ -13,6 +13,7 @@ import com.czy4201b.noticat.core.common.model.ServerInfo
 import com.czy4201b.noticat.core.database.ServerDao
 import com.czy4201b.noticat.core.database.entity.ServerEntity
 import com.czy4201b.noticat.core.network.OkHttpClientProvider
+import com.czy4201b.noticat.core.network.await
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.Job
@@ -294,7 +295,7 @@ class MainViewViewModel(
             try {
                 ServerManager.currentUrl?.let { url ->
                     val request = Request.Builder().url("$url/info").build()
-                    OkHttpClientProvider.client.newCall(request).execute().use { response ->
+                    OkHttpClientProvider.client.newCall(request).await().use { response ->
                         if (response.isSuccessful) {
 
                             val jsonString = response.body.string()
@@ -322,7 +323,7 @@ class MainViewViewModel(
     }
 
     fun getSubscribedClients() {
-        if (_state.value.connectionState is ConnectionState.Loading || _state.value.connectionState is ConnectionState.Disconnected) {
+        if (_state.value.connectionState is ConnectionState.Loading || _state.value.connectionState is ConnectionState.Disconnected || _state.value.connectionState is ConnectionState.Error) {
             _state.update { it.copy(subscribedClientsState = SubsState.Error("未连接")) }
             return
         }
@@ -346,7 +347,7 @@ class MainViewViewModel(
                             .header("Authorization", "Bearer $token")
                             .build()
 
-                        OkHttpClientProvider.client.newCall(request).execute().use { response ->
+                        OkHttpClientProvider.client.newCall(request).await().use { response ->
                             return@runWithTokenValidation response.code to response.body.string()
                         }
                     }
@@ -414,7 +415,7 @@ class MainViewViewModel(
                             .delete()
                             .build()
 
-                        OkHttpClientProvider.client.newCall(request).execute().use { response ->
+                        OkHttpClientProvider.client.newCall(request).await().use { response ->
                             return@runWithTokenValidation response.code to response.body.string()
                         }
                     }

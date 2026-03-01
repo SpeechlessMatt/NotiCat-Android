@@ -13,7 +13,7 @@
     <string name="error_server_version">服务器版本号: 出故障了喵~</string>
     <string name="server_settings">服务器设置</string>
     <string name="server_source_url">服务器源URL</string>
-    <string name="server_source_url_desc">可以设置多个服务器地址用于切换，服务器源相当于不同的信息源</string>
+    <string name="server_source_url_desc">可以设置多个服务器地址用于切换，服务器源相当于不同的信息源，展开后上拉添加更多服务器，长按服务器名称重命名</string>
     <string name="server_accepted_subscriptions">受支持的订阅</string>
     <string name="server_accepted_subscriptions_desc">不同服务器对订阅类型的支持不一定一致，而且一般建议不要在两个服务器上订阅相同的内容</string>
     <string name="subscriptions_and_filters"><![CDATA[订阅&过滤规则]]></string>

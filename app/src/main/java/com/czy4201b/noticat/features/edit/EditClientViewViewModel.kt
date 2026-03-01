@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.czy4201b.noticat.core.common.GlobalFilterManager
 import com.czy4201b.noticat.core.common.ServerManager
 import com.czy4201b.noticat.core.network.OkHttpClientProvider
+import com.czy4201b.noticat.core.network.await
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
@@ -64,6 +65,7 @@ class EditClientViewViewModel(
         _state.update { state ->
             state.copy(clientName = clientName, clientDesc = clientDesc)
         }
+        analyzeCred()
         analyzeExtra()
         if (subscriptionId != -1){
             fetchSubscriptionInfo(subscriptionId)
@@ -152,6 +154,20 @@ class EditClientViewViewModel(
 
     fun toggleApplyGlobalFilters(checked: Boolean){
         _state.update { it.copy(isApplyGlobalFilters = checked) }
+    }
+
+    private fun analyzeCred() {
+        ServerManager.supportClientMap.value?.get(client).let { clientInfo ->
+            clientInfo?.credentials.let { credParams ->
+                credParams?.let { cred ->
+                    if (!cred.isEmpty()) {
+                        _state.update { state ->
+                            state.copy(isShowCred = true)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private fun analyzeExtra() {
@@ -264,7 +280,7 @@ class EditClientViewViewModel(
                             .post(body)
                             .build()
 
-                        OkHttpClientProvider.client.newCall(request).execute().use { response ->
+                        OkHttpClientProvider.client.newCall(request).await().use { response ->
                             return@runWithTokenValidation response.code to response.body.string()
                         }
                     }
@@ -325,7 +341,7 @@ class EditClientViewViewModel(
                             .header("Authorization", "Bearer $token")
                             .build()
 
-                        OkHttpClientProvider.client.newCall(request).execute().use { response ->
+                        OkHttpClientProvider.client.newCall(request).await().use { response ->
                             return@runWithTokenValidation response.code to response.body.string()
                         }
                     }

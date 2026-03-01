@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.czy4201b.noticat.core.common.ServerManager
 import com.czy4201b.noticat.core.network.OkHttpClientProvider
+import com.czy4201b.noticat.core.network.await
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
@@ -117,7 +118,7 @@ class LoginCardViewModel: ViewModel() {
                         .post(body)
                         .build()
 
-                    OkHttpClientProvider.client.newCall(request).execute().use { response ->
+                    OkHttpClientProvider.client.newCall(request).await().use { response ->
                         val respString = response.body.string()
 
                         if (response.isSuccessful) {
@@ -171,7 +172,7 @@ class LoginCardViewModel: ViewModel() {
                         .post(body)
                         .build()
 
-                    OkHttpClientProvider.client.newCall(request).execute().use { response ->
+                    OkHttpClientProvider.client.newCall(request).await().use { response ->
                         val respString = response.body.string()
 
                         if (response.isSuccessful) {
@@ -224,7 +225,7 @@ class LoginCardViewModel: ViewModel() {
                         .post(body)
                         .build()
 
-                    OkHttpClientProvider.client.newCall(request).execute().use { response ->
+                    OkHttpClientProvider.client.newCall(request).await().use { response ->
                         val respString = response.body.string()
 
                         if (response.isSuccessful) {
@@ -274,7 +275,7 @@ class LoginCardViewModel: ViewModel() {
                             .url("$url/api/ping")
                             .header("Authorization", "Bearer $token")
                             .build()
-                        OkHttpClientProvider.client.newCall(request).execute().use { response ->
+                        OkHttpClientProvider.client.newCall(request).await().use { response ->
                             return@runWithTokenValidation response.code to response.body.string()
                         }
                     }

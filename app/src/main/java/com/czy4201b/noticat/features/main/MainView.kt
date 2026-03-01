@@ -733,8 +733,8 @@ fun MainView(
                                         }
                                     ) {
                                         Surface(
-                                            color = MaterialTheme.colorScheme.primaryContainer,
-                                            contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                                            color = MaterialTheme.colorScheme.secondaryContainer,
+                                            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
                                             onClick = {
                                                 ServerManager.currentUrl?.let {
                                                     navController.navigate(
@@ -887,8 +887,7 @@ fun MainView(
                                     showPayCodeDialog = true
                                 }
                             )
-                            .padding(horizontal = 15.dp)
-                            .padding(top = 5.dp),
+                            .padding(horizontal = 15.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Column(

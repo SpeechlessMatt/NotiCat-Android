@@ -193,16 +193,30 @@ fun SwipeLazyColumn(
                 source: NestedScrollSource
             ): Offset {
                 if (hasTriggered) return available
-                if (source == NestedScrollSource.UserInput && available.y < 0) {
-                    if (available.y < 0) { // 上拉
-                        totalDelta += available.y.absoluteValue
+                if (source == NestedScrollSource.UserInput) {
+                    val delta = available.y // 正值是下拉，负值是上拉
+
+                    // --- 逻辑 1：用户在往回拉 (下拉/回退) ---
+                    if (delta > 0 && totalDelta > 0f) {
+                        val oldDelta = totalDelta
+                        // 实时扣减位移，直到 0 为止
+                        totalDelta = (totalDelta - delta.absoluteValue).coerceAtLeast(0f)
+                        // 消费掉这段位移，让列表在抵消进度时保持静止
+                        return Offset(0f, oldDelta - totalDelta)
+                    }
+
+                    // --- 逻辑 2：用户在上拉 (增加进度) ---
+                    // 必须在列表已经触底的情况下才开始累加
+                    val isAtBottom = !listState.canScrollForward
+                    if (delta < 0 && isAtBottom) {
+                        totalDelta += delta.absoluteValue
                         if (totalDelta > threshold) {
                             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                             onSwipe()
                             hasTriggered = true
                         }
-                    } else if (consumed.y > 0) {
-                        totalDelta = 0f
+                        // 消费掉位移，防止列表拉动时产生默认的拉断效果或抖动
+                        return Offset(0f, delta)
                     }
                 } else if (source == NestedScrollSource.SideEffect) {
                     // 3. 如果是惯性滑动（Fling）：哪怕滑到了底，也强制清空进度

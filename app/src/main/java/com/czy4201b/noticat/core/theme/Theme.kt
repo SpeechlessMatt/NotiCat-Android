@@ -34,11 +34,11 @@ private val LightColorScheme = lightColorScheme(
     onSurfaceVariant = SteelGray,
 
     // 容器颜色（用于卡片、按钮等）
-    primaryContainer = PrussianBlue.copy(alpha = 0.1f),
+    primaryContainer = MintFrost,
     onPrimaryContainer = PrussianBlue,
 
-    secondaryContainer = BronzeGlow.copy(alpha = 0.1f),
-    onSecondaryContainer = BronzeGlow,
+    secondaryContainer = Color(0xFFD9E2E9),
+    onSecondaryContainer = PrussianBlue,
 
     // 功能色
     error = SunsetCoral,
@@ -85,8 +85,8 @@ private val DarkColorScheme = darkColorScheme(
     primaryContainer = BlueSteel.copy(alpha = 0.3f),
     onPrimaryContainer = Moonstone,
 
-    secondaryContainer = DesertRose.copy(alpha = 0.2f),
-    onSecondaryContainer = CopperEmber,
+    secondaryContainer = BlueSteel.copy(alpha = 0.3f),
+    onSecondaryContainer = Moonstone,
 
     // 功能色
     error = RubyRed,
