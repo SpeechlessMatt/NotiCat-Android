@@ -1,6 +1,6 @@
 # 😼 NotiCat for Android
 
-[![Release](https://img.shields.io/github/v/release/YOURNAME/noticat-android?logo=github)](https://github.com/SpeechlessMatt/NotiCat-Android/releases)
+[![Release](https://img.shields.io/github/v/release/SpeechlessMatt/NotiCat-Android?logo=github)](https://github.com/SpeechlessMatt/NotiCat-Android/releases)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.0+-7F52FF?logo=kotlin)]()
 [![Download](https://img.shields.io/badge/Download-APK-brightgreen)](https://github.com/SpeechlessMatt/NotiCat-Android/releases)
 
@@ -14,7 +14,7 @@
 **不需要编译，不需要配置环境，下载即用：**
 
 1. 进入 [**Releases**](https://github.com/SpeechlessMatt/NotiCat-Android/releases/latest) 页面
-2. 下载 `app-release.apk`（约 15MB）
+2. 下载 `app-release.apk`（约 20MB）
 3. 安装并允许"未知来源"权限（Android 会提示）
 
 *支持 Android 8.0 (API 26) 及以上*
@@ -69,11 +69,10 @@ http://192.168.1.5:8080
 - **快速筛选**：未读优先、按源分类、正则关键词高亮
 - **即时测试**：输入正则实时预览匹配结果，避免过滤错杀
 
-### 🎨  Material You 设计
+### 🎨  简洁设计
 
 - 自动跟随系统取色
 - 深色模式
-- 简洁设计
 
 ---
 
